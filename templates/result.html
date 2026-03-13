@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>PricePro Result</title>
+
+<style>
+
+body{
+font-family:Inter,sans-serif;
+margin:0;
+background:#f5f7fb;
+color:#111;
+}
+
+header{
+height:60px;
+background:white;
+display:flex;
+align-items:center;
+box-shadow:0 2px 10px rgba(0,0,0,0.05);
+}
+
+.container{
+max-width:1100px;
+margin:auto;
+padding:0 20px;
+}
+
+.logo{
+font-weight:700;
+font-size:20px;
+}
+
+.section{
+margin-top:40px;
+}
+
+.card-grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+gap:20px;
+}
+
+.card{
+background:white;
+padding:25px;
+border-radius:12px;
+box-shadow:0 8px 25px rgba(0,0,0,0.05);
+}
+
+.big-price{
+font-size:42px;
+font-weight:700;
+color:#4f46e5;
+}
+
+.table{
+margin-top:30px;
+background:white;
+border-radius:12px;
+overflow:hidden;
+}
+
+table{
+width:100%;
+border-collapse:collapse;
+}
+
+th,td{
+padding:14px;
+border-bottom:1px solid #eee;
+text-align:left;
+}
+
+th{
+background:#fafafa;
+}
+
+button{
+padding:12px 20px;
+border:none;
+border-radius:10px;
+background:#4f46e5;
+color:white;
+font-weight:600;
+cursor:pointer;
+}
+
+.actions{
+margin-top:30px;
+}
+
+</style>
+
+</head>
+
+<body>
+
+<header>
+<div class="container">
+<div class="logo">PricePro</div>
+</div>
+</header>
+
+
+<div class="container">
+
+<h1 class="section">Pricing Result</h1>
+
+<div class="card-grid">
+
+<div class="card">
+<h4>Product</h4>
+<p>{{result.product_name}}</p>
+</div>
+
+<div class="card">
+<h4>Cost Price</h4>
+<p>₹{{result.cost_price}}</p>
+</div>
+
+<div class="card">
+<h4>Market Avg</h4>
+<p>₹{{result.base_price}}</p>
+</div>
+
+<div class="card">
+<h4>Suggested Price</h4>
+<div class="big-price">₹{{result.final_price}}</div>
+</div>
+
+<div class="card">
+<h4>Expected Profit</h4>
+<p>{{result.profit_pct}}%</p>
+</div>
+
+</div>
+
+
+<div class="section">
+
+<h2>Competitor Prices</h2>
+
+<div class="table">
+
+<table>
+
+<tr>
+<th>Product</th>
+<th>Price</th>
+</tr>
+
+{% for comp in competitor_data %}
+
+<tr>
+<td>{{comp.title}}</td>
+<td>₹{{comp.price}}</td>
+</tr>
+
+{% endfor %}
+
+</table>
+
+</div>
+
+</div>
+
+
+<div class="actions">
+
+<a href="/"><button>Try Another Product</button></a>
+
+</div>
+
+</div>
+
+</body>
+</html>

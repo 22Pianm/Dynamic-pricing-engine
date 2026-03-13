@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>PricePro Documentation</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+
+
+  <style>
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen,
+        Ubuntu, Cantarell, 'Open Sans', sans-serif;
+      background: #ffffff;
+      color: #4b4b4b;
+      margin: 0;
+      padding: 0;
+      line-height: 1.6;
+    }
+
+    .container {
+      max-width: 960px;
+      margin: 2.5rem auto 4rem;
+      padding: 0 1rem;
+    }
+
+    header.top-nav {
+      position: sticky;
+      top: 0;
+      background: #ffffff;
+      height: 60px;
+      display: flex;
+      align-items: center;
+      box-shadow: 0 1px 4px rgba(0,0,0,0.06);
+      z-index: 1000;
+    }
+    .nav-container {
+      width: 100%;
+      max-width: 960px;
+      margin: 0 auto;
+      padding: 0 1rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .logo {
+      font-weight: 700;
+      font-size: 1.5rem;
+      letter-spacing: 1.2px;
+      color: #000000;
+      user-select: none;
+    }
+    nav ul.nav-list {
+      list-style: none;
+      display: flex;
+      gap: 2rem;
+      margin: 0;
+      padding: 0;
+    }
+    nav ul.nav-list li a.nav-link {
+      font-weight: 600;
+      color: #7a7a7a;
+      text-decoration: none;
+      transition: color 0.25s ease, border-color 0.25s ease;
+      padding: 0.25rem 0;
+      border-bottom: 2px solid transparent;
+    }
+    nav ul.nav-list li a.nav-link:hover,
+    nav ul.nav-list li a.nav-link:focus {
+      color: #000000;
+      border-bottom-color: #000000;
+      outline: none;
+    }
+    nav ul.nav-list li a.nav-link.active {
+      color: #000000;
+      border-bottom-color: #000000;
+      font-weight: 700;
+    }
+
+    /* Hero header in pure black/white */
+    .docs-hero {
+      background: #000000;
+      color: #ffffff;
+      border-radius: 1.25rem;
+      padding: 2.5rem 2rem;
+      margin-bottom: 2rem;
+      box-shadow: 0 18px 40px rgba(0,0,0,0.35);
+      text-align: left;
+    }
+    .docs-hero h1 {
+      font-size: 2.4rem;
+      font-weight: 800;
+      margin: 0 0 0.6rem;
+    }
+    .docs-hero p {
+      margin: 0.2rem 0;
+      font-size: 0.98rem;
+      color: #e5e5e5;
+    }
+    .docs-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 0.18rem 0.9rem;
+      border-radius: 999px;
+      background: #111111;
+      font-size: 0.78rem;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      margin-bottom: 0.9rem;
+      color: #d4d4d4;
+    }
+    .docs-pill-dot {
+      width: 7px;
+      height: 7px;
+      border-radius: 999px;
+      background: #ffffff;
+    }
+
+    /* Content card */
+    section.documentation-section {
+      background: #ffffff;
+      padding: 2rem 2.4rem 2.4rem;
+      border-radius: 1rem;
+      box-shadow: 0 10px 28px rgba(0,0,0,0.08);
+      border: 1px solid #e5e5e5;
+    }
+
+    h2 {
+      font-size: 1.5rem;
+      font-weight: 700;
+      margin-top: 1.8rem;
+      margin-bottom: 0.8rem;
+      color: #000000;
+    }
+    p, li {
+      font-size: 0.98rem;
+      color: #4b4b4b;
+    }
+    ul, ol {
+      padding-left: 1.3rem;
+      margin-top: 0.3rem;
+      margin-bottom: 0.8rem;
+    }
+
+    .info-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit,minmax(260px,1fr));
+      gap: 1.2rem;
+      margin-top: 0.8rem;
+    }
+    .info-card {
+      border-radius: 0.9rem;
+      padding: 1.1rem 1.2rem;
+      background: #fafafa;
+      border: 1px solid #e5e5e5;
+    }
+    .info-card h3 {
+      margin: 0 0 0.4rem;
+      font-size: 1rem;
+      font-weight: 700;
+      color: #000000;
+    }
+    .info-tag {
+      display: inline-block;
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      color: #777777;
+      margin-bottom: 0.4rem;
+    }
+
+    .step-list li {
+      margin-bottom: 0.35rem;
+    }
+
+    .highlight {
+      font-weight: 600;
+      color: #000000;
+    }
+  </style>
+</head>
+<body>
+  <header class="top-nav" role="banner">
+    <div class="nav-container container">
+      <div class="logo" aria-label="PricePro Logo">PricePro</div>
+      <nav role="navigation" aria-label="Primary">
+        <ul class="nav-list">
+          <li><a href="/" class="nav-link">Home</a></li>
+          <li><a href="/docs" class="nav-link active">Docs</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container" role="main">
+    <section class="docs-hero" aria-label="PricePro overview">
+      <div class="docs-pill">
+        <span class="docs-pill-dot"></span>
+        <span>Dynamic pricing engine</span>
+      </div>
+      <h1>PricePro Documentation</h1>
+      <p>How PricePro uses data and reinforcement learning to suggest smart prices for your products.</p>
+      <p>Interface and visuals are kept intentionally minimal in pure black and white.</p>
+    </section>
+
+    <section class="documentation-section" aria-label="Documentation content">
+      <h2>System Overview</h2>
+      <p>
+        PricePro is a smart pricing assistant that suggests an optimal selling price for your product
+        using <span class="highlight">cost price, stock age, stock quantity, live competitor prices</span>
+        and <span class="highlight">search trend signals</span>.
+      </p>
+
+      <h2>Key Features</h2>
+      <div class="info-grid">
+        <div class="info-card">
+          <div class="info-tag">Data</div>
+          <h3>Competitor Analysis</h3>
+          <p>
+            Collects product listings from Amazon and Flipkart to see how similar items are priced,
+            along with ratings and basic popularity indicators.
+          </p>
+        </div>
+        <div class="info-card">
+          <div class="info-tag">Signals</div>
+          <h3>Trend Insights</h3>
+          <p>
+            Uses Google Trends (or an uploaded CSV) to approximate demand over time and generate
+            a simple demand factor for pricing decisions.
+          </p>
+        </div>
+        <div class="info-card">
+          <div class="info-tag">Model</div>
+          <h3>RL-Based Pricing</h3>
+          <p>
+            A trained <span class="highlight">SAC (Soft Actor–Critic)</span> model reads cost, stock, age,
+            and demand factor and outputs a recommended price; if unavailable, a rule‑based fallback is used.
+          </p>
+        </div>
+      </div>
+
+      <h2>How to Use PricePro</h2>
+      <ol class="step-list">
+        <li>Enter <span class="highlight">product name, cost price, stock age,</span> and <span class="highlight">stock quantity</span> on the home page.</li>
+        <li>Select the most relevant <span class="highlight">category</span> from the dropdown.</li>
+        <li>Click <span class="highlight">“Get Suggested Price”</span> and wait for the loader to finish.</li>
+        <li>Review the <span class="highlight">Final Suggested Price</span>, adjustments, competitors, and charts on the result page.</li>
+        <li>Use <span class="highlight">“Download Report”</span> to export a CSV summary if needed.</li>
+      </ol>
+
+      <h2>Pricing Logic</h2>
+      <p>The final price is built from several components:</p>
+      <ul>
+        <li><span class="highlight">Base Price:</span> A starting value derived from cost .</li>
+        <li><span class="highlight">Trend Adjustment:</span> Small upward/downward change depending on demand signal.</li>
+        <li><span class="highlight">Stock Adjustment:</span> Larger stock pushes price slightly down; low stock can keep it higher.</li>
+        <li><span class="highlight">Age Adjustment:</span> Older inventory gets discounted more to avoid dead stock.</li>
+        <li><span class="highlight">SAC Output:</span> When the RL model runs successfully, its suggested price becomes the final recommendation.</li>
+      </ul>
+
+      <p>
+        All visuals across the app (forms, cards, charts) follow the same black‑and‑white theme
+        for a clean, distraction‑free interface.
+      </p>
+    </section>
+  </main>
+</body>
+</html>

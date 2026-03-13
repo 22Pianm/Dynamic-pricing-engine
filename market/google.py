@@ -1,8 +1,8 @@
 # market/google.py
 
 from serpapi import GoogleSearch
-
 SERPAPI_KEY="93a107764928e4b328e9796934770057ae20ba6ec400d259587988ed516d36cf"
+
 
 def get_google_prices(product_id: str) -> list[float]:
     """

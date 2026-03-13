@@ -1,0 +1,345 @@
+/* ======================================================
+   PRICEPRO – PREMIUM GLASSMORPHISM SAAS THEME 2026
+   ====================================================== */
+
+/* ---------- ENHANCED COLOR SYSTEM ----------
+   Switched to mesmerizing Deep Ice Blue → Frosted Teal gradient for tech/SaaS vibe [web:26] */
+:root {
+  --teal-main: #80D0C7;
+  --teal-deep: #13547A;
+  --teal-glow: rgba(128, 208, 199, 0.4);
+  --teal-soft: rgba(128, 208, 199, 0.15);
+
+  --dark-900: #0A1A2F;
+  --dark-800: #1A365D;
+  --dark-700: #2C5282;
+
+  --glass-bg: rgba(255, 255, 255, 0.12);
+  --glass-border: rgba(255, 255, 255, 0.22);
+  --glass-shine: rgba(255, 255, 255, 0.4);
+}
+
+/* Global reset for margin collapse issues [web:27] */
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  background:
+    radial-gradient(circle at 20% 20%, var(--teal-glow), transparent 40%),
+    radial-gradient(circle at 80% 80%, var(--teal-soft), transparent 45%),
+    linear-gradient(135deg, var(--dark-900), var(--dark-700));
+  min-height: 100vh;
+  overflow-x: hidden; /* Prevent horizontal scroll from escaping boxes */
+}
+
+/* ======================================================
+   HERO SECTION – ENHANCED WITH FLOATING PARTICLES
+   ====================================================== */
+.hero-section {
+  position: relative;
+  margin: 2rem auto;
+  max-width: 1200px;
+  padding: 6rem 2.5rem;
+  border-radius: 3rem;
+  background:
+    linear-gradient(145deg, rgba(128,208,199,0.25), transparent),
+    radial-gradient(circle at top left, var(--teal-glow), transparent 50%),
+    linear-gradient(135deg, var(--dark-900), var(--dark-700));
+  box-shadow:
+    0 60px 120px rgba(10, 26, 47, 0.6),
+    inset 0 1px 0 rgba(255,255,255,0.12),
+    0 0 0 1px rgba(255,255,255,0.08);
+  overflow: hidden;
+  text-align: center;
+  animation: heroFloat 6s ease-in-out infinite alternate;
+}
+
+@keyframes heroFloat {
+  0% { transform: translateY(0) rotateX(0deg); }
+  100% { transform: translateY(-8px) rotateX(1deg); }
+}
+
+.hero-section::before {
+  content: "";
+  position: absolute;
+  inset: -50%;
+  background:
+    conic-gradient(
+      from 0deg,
+      transparent 0%,
+      var(--teal-glow) 30%,
+      transparent 60%,
+      var(--teal-soft) 90%,
+      transparent
+    );
+  animation: heroRotate 20s linear infinite;
+  filter: blur(20px);
+}
+
+@keyframes heroRotate {
+  0% { transform: rotate(0deg) scale(1); }
+  100% { transform: rotate(360deg) scale(1.05); }
+}
+
+/* Floating particles */
+.hero-section::after {
+  content: "";
+  position: absolute;
+  width: 200%;
+  height: 200%;
+  background-image:
+    radial-gradient(2px 2px at 20px 30px, var(--teal-main), transparent),
+    radial-gradient(2px 2px at 40px 70px, rgba(255,255,255,0.5), transparent),
+    radial-gradient(1px 1px at 90px 40px, var(--teal-glow), transparent);
+  animation: particleFloat 25s linear infinite;
+}
+
+@keyframes particleFloat {
+  0% { transform: translate(0, 0) rotate(0deg); }
+  100% { transform: translate(-100px, -100px) rotate(360deg); }
+}
+
+.hero-section h1 {
+  font-size: clamp(2.8rem, 5vw, 4.5rem);
+  font-weight: 900;
+  background: linear-gradient(135deg, #ffffff, var(--teal-main));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  margin: 0 auto 1.5rem;
+  letter-spacing: -0.02em;
+  position: relative;
+}
+
+.hero-section h1::after {
+  content: '';
+  position: absolute;
+  bottom: -10px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 60px;
+  height: 4px;
+  background: linear-gradient(90deg, transparent, var(--teal-main), transparent);
+  border-radius: 2px;
+  animation: underlineGlow 2s ease-in-out infinite alternate;
+}
+
+@keyframes underlineGlow {
+  0% { box-shadow: 0 0 4px var(--teal-glow); }
+  100% { box-shadow: 0 0 12px var(--teal-main); }
+}
+
+.hero-section p {
+  font-size: 1.2rem;
+  color: rgba(255, 255, 255, 0.92);
+  max-width: 600px;
+  margin: 0 auto 2rem;
+  line-height: 1.7;
+}
+
+/* ======================================================
+   FORM SECTION – FIXED MARGINS + GLASSMORPHISM PERFECTION [web:24]
+   ====================================================== */
+.form-section {
+  position: relative;
+  margin: 4rem auto 6rem; /* Fixed: positive margins only, no negative/escape */
+  max-width: 540px;
+  width: 100%;
+  padding: 3.5rem 2.8rem;
+  background: var(--glass-bg);
+  backdrop-filter: blur(28px);
+  -webkit-backdrop-filter: blur(28px);
+  border: 1px solid var(--glass-border);
+  border-radius: 2.5rem;
+  box-shadow:
+    0 50px 100px rgba(10, 26, 47, 0.4),
+    inset 0 1px 0 var(--glass-shine),
+    0 20px 60px rgba(0,0,0,0.2);
+  
+  /* Dynamic shine effect [web:33] */
+}
+
+.form-section::before {
+  content: "";
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  right: -50%;
+  bottom: -50%;
+  background: 
+    linear-gradient(135deg,
+      transparent,
+      var(--glass-shine),
+      transparent
+    );
+  border-radius: inherit;
+  opacity: 0;
+  transition: opacity 0.4s ease;
+  z-index: 0;
+  pointer-events: none;
+}
+
+.form-section:hover::before {
+  opacity: 1;
+  animation: shineSweep 2s ease-out;
+}
+
+@keyframes shineSweep {
+  0% { transform: translateX(-100%) translateY(-100%) rotate(45deg); }
+  100% { transform: translateX(100%) translateY(100%) rotate(45deg); }
+}
+
+.form-section > * {
+  position: relative;
+  z-index: 1;
+}
+
+.form-section label {
+  display: block;
+  margin-top: 1.8rem;
+  font-size: 1rem;
+  font-weight: 600;
+  color: rgba(255, 255, 255, 0.95);
+  letter-spacing: 0.3px;
+}
+
+input,
+select {
+  width: 100%;
+  margin-top: 0.6rem;
+  padding: 1rem 1.4rem;
+  border: 1px solid rgba(255,255,255,0.2);
+  border-radius: 1.5rem;
+  background: rgba(255,255,255,0.15);
+  backdrop-filter: blur(12px);
+  color: #ffffff;
+  font-size: 1rem;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+input::placeholder,
+select::placeholder {
+  color: rgba(255,255,255,0.6);
+}
+
+input:focus,
+select:focus {
+  outline: none;
+  border-color: var(--teal-main);
+  box-shadow: 
+    0 0 0 4px var(--teal-glow),
+    inset 0 1px 0 rgba(255,255,255,0.2);
+  transform: translateY(-2px);
+  background: rgba(255,255,255,0.22);
+}
+
+/* ======================================================
+   SHINY PRIMARY BUTTON WITH MULTI-LAYER HOVER [web:28][web:33]
+   ====================================================== */
+.primary-btn {
+  position: relative;
+  width: 100%;
+  margin-top: 2.8rem;
+  padding: 1.1rem 2rem;
+  border: none;
+  border-radius: 50px;
+  background: 
+    linear-gradient(135deg, var(--teal-main), #06BEB6),
+    linear-gradient(135deg, rgba(255,255,255,0.3), transparent);
+  background-blend-mode: overlay;
+  font-weight: 700;
+  font-size: 1.1rem;
+  color: #ffffff;
+  letter-spacing: 0.5px;
+  box-shadow: 
+    0 20px 50px var(--teal-glow),
+    inset 0 1px 0 rgba(255,255,255,0.4);
+  overflow: hidden;
+  transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.primary-btn::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: 
+    linear-gradient(90deg,
+      transparent,
+      rgba(255,255,255,0.4),
+      transparent
+    );
+  transition: left 0.6s ease;
+}
+
+.primary-btn:hover {
+  transform: translateY(-4px) scale(1.02);
+  box-shadow: 
+    0 35px 80px rgba(128,208,199,0.6),
+    inset 0 1px 0 rgba(255,255,255,0.6);
+}
+
+.primary-btn:hover::before {
+  left: 100%;
+}
+
+.primary-btn:active {
+  transform: translateY(-2px) scale(1.01);
+}
+
+/* ======================================================
+   FINAL PRICE – ULTRA PREMIUM DISPLAY
+   ====================================================== */
+.final-price {
+  display: inline-block;
+  font-size: clamp(3rem, 8vw, 5rem);
+  font-weight: 900;
+  padding: 1.5rem 4rem;
+  margin: 2rem auto;
+  border-radius: 999px;
+  background: 
+    linear-gradient(135deg, var(--teal-main), #06BEB6),
+    linear-gradient(135deg, rgba(255,255,255,0.3), transparent);
+  background-blend-mode: overlay;
+  color: #ffffff;
+  text-shadow: 0 2px 10px rgba(0,0,0,0.3);
+  box-shadow: 
+    0 40px 90px rgba(128,208,199,0.5),
+    0 0 0 1px rgba(255,255,255,0.3),
+    inset 0 1px 0 rgba(255,255,255,0.5);
+  animation: pricePulse 2s ease-in-out infinite alternate;
+}
+
+@keyframes pricePulse {
+  0% { box-shadow: 0 40px 90px rgba(128,208,199,0.5), 0 0 0 1px rgba(255,255,255,0.3); }
+  100% { box-shadow: 0 50px 120px rgba(128,208,199,0.7), 0 0 30px rgba(128,208,199,0.5); }
+}
+
+/* RESPONSIVE PERFECTION */
+@media (max-width: 768px) {
+  .hero-section {
+    margin: 1rem;
+    padding: 4rem 2rem;
+  }
+  
+  .form-section {
+    margin: 2rem 1rem;
+    padding: 2.5rem 2rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .hero-section h1 {
+    font-size: 2.5rem;
+  }
+  
+  .form-section {
+    padding: 2rem 1.5rem;
+  }
+}

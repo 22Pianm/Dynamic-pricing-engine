@@ -10,7 +10,7 @@ from serpapi import GoogleSearch
 warnings.filterwarnings("ignore")
 
 app = Flask(__name__)
-SERPAPI_KEY="93a107764928e4b328e9796934770057ae20ba6ec400d259587988ed516d36cf"
+SERPAPI_KEY=os.getenv("93a107764928e4b328e9796934770057ae20ba6ec400d259587988ed516d36cf")
 
 
 # ----------------------------
@@ -175,4 +175,4 @@ def index():
 # ----------------------------
 
 if __name__ == "__main__":
-    app.run(debug=True)
+    app.run(host="0.0.0.0", port=10000)
